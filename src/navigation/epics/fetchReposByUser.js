@@ -7,6 +7,10 @@ export default function fetchReposByUser(action$) {
     .map(action => action.payload.user)
     .switchMap(user =>
       ajax.getJSON(`https://api.github.com/users/${user}/repos`)
+        .map(res => {
+          console.log(res);
+          return res;
+        })
         .map(receiveUserRepos.bind(null, user))
     );
 }

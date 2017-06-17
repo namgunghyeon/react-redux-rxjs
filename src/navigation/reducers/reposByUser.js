@@ -7,6 +7,7 @@ export default function reposByUser(state = {}, action) {
         [action.payload.user]: undefined
       });
     case ActionTypes.RECEIVED_USER_REPOS:
+      console.log(action);
       return Object.assign({}, state, {
         [action.payload.user]: action.payload.repos
       });
